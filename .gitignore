@@ -1,3 +1,7 @@
+# core
 node_modules
 dist
 .husky
+
+# database
+db
