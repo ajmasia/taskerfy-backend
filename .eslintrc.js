@@ -7,7 +7,9 @@ module.exports = {
   extends: ['plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    sourceType: 'module',
+    sourceType: 'module'
   },
-  rules: {}
+  rules: {
+    '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }]
+  }
 };

@@ -8,6 +8,10 @@ export const getContainer = async (id: string): Promise<Container | null> => {
   return await ContainerModel.findById(id);
 };
 
+export const getContainerByName = async (name: string): Promise<Container | null> => {
+  return await ContainerModel.findOne({ name });
+};
+
 const addContainer = async (containerData: Partial<Container>): Promise<Container> => {
   const container = new ContainerModel(containerData);
   return await container.save();
@@ -27,6 +31,7 @@ export const deleteContainer = async (id: string): Promise<Container | null> => 
 export const containerService = {
   getAllContainers,
   getContainer,
+  getContainerByName,
   addContainer,
   updateContainer,
   deleteContainer

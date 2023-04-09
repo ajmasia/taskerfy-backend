@@ -21,7 +21,8 @@ const ContainerSchema = new Schema<Container>(
     description: String
   },
   {
-    timestamps: true
+    timestamps: true,
+    toJSON: { versionKey: false }
   }
 );
 

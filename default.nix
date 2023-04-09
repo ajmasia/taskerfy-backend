@@ -1,34 +1,20 @@
 { pkgs ? import <nixpkgs> { } }:
 
-let
-  env = pkgs.python310.withPackages (p: with p; [
-    uvicorn
-    fastapi
-    pymongo
-    passlib
-    pyjwt
-    python-decouple
-    termcolor
-  ]);
-in
-
 pkgs.mkShell {
-  name = "taskerfy";
+  name = "taskerfy-dev-env";
   buildInputs = with pkgs; [
-    env
+    nodejs-16_x
+    httpie
     lolcat
-    tmux
     # other dependencies
   ];
   shellHook = ''
-    export PYTHONPATH="./src:$PYTHONPATH"
-
     clear 
-    echo "Welcom to $(python --version) environmet!" | lolcat
+    echo "Welcome to the $(node --version) environment!" | lolcat
     echo "****************************************"
-    echo -e "https://nixos.wiki/wiki/Python"
-    echo -e "https://nixos.wiki/wiki/Development_environment_with_nix-shell"
-    echo -e "https://ghedam.at/a-tour-of-nix-flakes"
+    echo -e "https://nodejs.org/docs/latest-v16.x/api/"
+    echo -e "https://nixos.wiki/wiki/Node.js"
+    echo -e "https://nixos.wiki/wiki/Development_environment_with_nix-shell#direnv"
     echo "*********************************************************************"
   '';
 }

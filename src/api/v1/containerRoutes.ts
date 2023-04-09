@@ -5,9 +5,9 @@ const router = express.Router();
 
 router
   .get('/', controller.getAllContainers)
-  .get('/:id', controller.getContainerById)
+  .get('/:id', controller.getContainer)
   .post('/', controller.addContainer)
-  .put('/:id', controller.updateContainerById)
-  .delete('/:id', controller.deleteContainerById);
+  .put('/:id', controller.updateContainer)
+  .delete('/:id', controller.deleteContainer);
 
 export { router as containerRoutes };
